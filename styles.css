@@ -1,0 +1,38 @@
+.title {
+    text-align: center;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.controls {
+    text-align: center;
+}
+
+.controls__dimensions {
+    margin-bottom: 15px;
+}
+
+.controls__dimensions-input {
+    border: 1px solid black;
+}
+
+.controls__dimensions-input_error {
+    border-color: red;
+    color: red;
+}
+
+.controls__color {
+    margin-bottom: 15px;
+}
+
+.field {
+    margin: 50px auto;
+    border-collapse: collapse;
+}
+
+.cell {
+    border: 1px solid black;
+}

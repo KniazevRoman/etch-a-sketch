@@ -5,8 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <h1 class="title">Etch a Sketch!</h1>
+    <div class="container">
+        <div class="controls">
+            <div class="controls__dimensions">
+                <label for="dimensions" class="controls__dimensions-label">Enter the width of field (max = 64):</label>
+                <input type="text" name="dimensions" class="controls__dimensions-input">
+            </div>
+            <div class="controls__color">
+                <label for="color" class="controls__color-label">Choose the color:</label>
+                <select name="color" id="color" class="controls__color-select">
+                    <option value="black" selected>black</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="blue">blue</option>
+                    <option value="rainbow">rainbow</option>
+                </select>
+            </div>
+            <input type="submit" class="controls__reload" value="Reload!">
+        </div>
+        <table class="field"></table>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
