@@ -1,68 +1,72 @@
 function createField (columns = 16) {
-    console.log(columns);
+    let sizeValue = document.querySelector('.controls__chosen-size');
+    sizeValue.textContent = `${size.value} x ${size.value}`;
 
-    let dimension = Math.floor(400 / columns) + 'px';
-
-    let field = document.querySelector('.field');
+    let cellSize = Math.floor(400 / columns) + 'px';
 
     for (let i = 0; i < columns; i++) {
         let row = document.createElement('tr');
         for (let i = 0; i < columns; i++) {
             let cell = document.createElement('td');
             cell.classList.add('cell');
-            cell.style.width = dimension;
-            cell.style.height = dimension;
+            cell.style.width = cellSize;
+            cell.style.height = cellSize;
             row.append(cell);
         }
         field.append(row);
     }
 
-    let color = document.querySelector('.controls__color-select').value;
-
-    if (color == 'rainbow') {
-        field.addEventListener('pointerover', function(event) {
-            color = '#' + Math.floor(Math.random()*16777215).toString(16);
-            if (event.target.tagName.toLowerCase() == 'td') {
-                event.target.style.backgroundColor = color;
-            }
-        });
-    } else {
-        field.addEventListener('pointerover', function(event) {
-            if (event.target.tagName.toLowerCase() == 'td') {
-                event.target.style.backgroundColor = color;
-            }
-        });
-    }
+    setColor();
 }
 
 function removeField() {
-    let field = document.querySelector('.field');
     field.innerHTML = '';
 }
 
-let dimensions = document.querySelector('.controls__dimensions-input');
+function setColor() {
+    let chosenColor = document.querySelector('.controls__color-picker:checked');
 
-dimensions.addEventListener('change', function() {
-    let columns = +dimensions.value;
-    if (columns > 64) {
-        dimensions.classList.add('controls__dimensions-input_error');
-    } else if(dimensions.classList.contains('controls__dimensions-input_error') && columns <= 64) {
-        dimensions.classList.remove('controls__dimensions-input_error');
-    }
-});
+    document.querySelector('.controls__chosen-color').textContent = chosenColor.value;
 
-let reload = document.querySelector('.controls__reload');
-reload.addEventListener('click', function() {
-    let columns = +dimensions.value;
-    if (columns <= 64 && columns > 0) {
-        removeField();
-        createField(columns);
-    } else if (columns == 0) {
-        removeField();
-        createField();
+    if (chosenColor.value == 'rainbow') {
+        field.addEventListener('pointerover', function(event) {
+            chosenColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            if (event.target.tagName.toLowerCase() == 'td') {
+                event.target.style.backgroundColor = chosenColor;
+            }
+        });
     } else {
-        alert('Error: incorrent width! Please insert another value.');
+        field.addEventListener('pointerover', function(event) {
+            if (event.target.tagName.toLowerCase() == 'td') {
+                event.target.style.backgroundColor = chosenColor.value;
+            }
+        });
     }
+
+    let previousCircle = document.querySelector('.controls__color-checkmark_chosen');
+    previousCircle.classList.remove('controls__color-checkmark_chosen');
+
+    let colorCircle = document.querySelector('.controls__color-picker:checked ~ .controls__color-checkmark');
+    colorCircle.classList.add('controls__color-checkmark_chosen');
+}
+
+let size = document.querySelector('.controls__size-input');
+size.addEventListener('change', function() {
+    let sizeValue = document.querySelector('.controls__chosen-size');
+    sizeValue.textContent = `${size.value} x ${size.value}`;
 });
 
+let color = document.querySelector('.controls__color-radio');
+color.addEventListener('click', function() {
+    setColor();
+});
+
+let refresh = document.querySelector('.controls__refresh');
+refresh.addEventListener('click', function() {
+    let columns = +size.value;
+    removeField();
+    createField(columns);
+});
+
+let field = document.querySelector('.field');
 createField(16);

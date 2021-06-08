@@ -6,26 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1 class="title">Etch a Sketch!</h1>
     <div class="container">
         <div class="controls">
-            <div class="controls__dimensions">
-                <label for="dimensions" class="controls__dimensions-label">Enter the width of field (max = 64):</label>
-                <input type="text" name="dimensions" class="controls__dimensions-input">
+            <div class="controls__size">
+                <label for="size" class="controls__size-label">Field size: <span class="controls__chosen-size"></span></label>
+                <div class="controls__input-container">
+                    <div class="controls__size-limiter">1</div>
+                    <input type="range" name ="size" min="1" max="64" value="16" class="controls__size-input">
+                    <div class="controls__size-limiter">64</div>
+                </div>
+                
             </div>
             <div class="controls__color">
-                <label for="color" class="controls__color-label">Choose the color:</label>
-                <select name="color" id="color" class="controls__color-select">
-                    <option value="black" selected>black</option>
-                    <option value="red">red</option>
-                    <option value="green">green</option>
-                    <option value="blue">blue</option>
-                    <option value="rainbow">rainbow</option>
-                </select>
+                <div for="color" class="controls__color-label">Color: <span class="controls__chosen-color"></span></div>
+                <div class="controls__color-radio">
+                    <label class="controls__color-container">
+                        <input type="radio" name="color" id="black" value="black" class="controls__color-picker controls__color-checkmark_chosen" checked>
+                        <span class="controls__color-checkmark"></span>
+                    </label>
+                    <label class="controls__color-container">
+                        <input type="radio" name="color" id="red" value="red" class="controls__color-picker">
+                        <span class="controls__color-checkmark"></span>
+                    </label>
+                    <label class="controls__color-container">
+                        <input type="radio" name="color" id="green" value="green" class="controls__color-picker">
+                        <span class="controls__color-checkmark"></span>
+                    </label>
+                    <label class="controls__color-container">
+                        <input type="radio" name="color" id="blue" value="blue" class="controls__color-picker">
+                        <span class="controls__color-checkmark"></span>
+                    </label>
+                    <label class="controls__color-container">
+                        <input type="radio" name="color" id="rainbow" value="rainbow" class="controls__color-picker">
+                        <span class="controls__color-checkmark"></span>
+                    </label>
+                </div>
             </div>
-            <input type="submit" class="controls__reload" value="Reload!">
+
+            <div class="controls__refresh"></div>
         </div>
         <table class="field"></table>
     </div>
