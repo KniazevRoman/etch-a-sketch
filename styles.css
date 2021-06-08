@@ -229,13 +229,21 @@
 }
 
 .controls__refresh {
+    margin-top: 45px;;
+}
+
+.controls__refresh-label {
+    font-size: 36px;
+}
+
+.controls__refresh-button {
     width: 100px;
     height: 100px;
-    margin: 30px auto 0;
+    margin: 15px auto 0;
     background-image: url('imgs/refresh.svg');
 }
 
-.controls__refresh:hover {
+.controls__refresh-button:hover {
     cursor: pointer;
 }
 

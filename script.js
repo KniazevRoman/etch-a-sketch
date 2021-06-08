@@ -61,7 +61,7 @@ color.addEventListener('click', function() {
     setColor();
 });
 
-let refresh = document.querySelector('.controls__refresh');
+let refresh = document.querySelector('.controls__refresh-button');
 refresh.addEventListener('click', function() {
     let columns = +size.value;
     removeField();
