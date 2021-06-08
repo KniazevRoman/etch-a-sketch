@@ -48,10 +48,27 @@
                 </div>
             </div>
 
-            <div class="controls__refresh">
-                <div class="controls__refresh-label">Refresh</div>
-                <div class="controls__refresh-button"></div>
+            <div class="controls__method-refresh-container">
+                <div class="controls__method">
+                    <div class="controls__method-label">Method: <span class="controls__chosen-method"></span></div>
+                    <label class="controls__method-container">
+                        <div class="controls__method-title">Slide</div>
+                        <input type="radio" name="method" id="slide" value="pointerover" class="controls__method-picker controls__method-checkmark_chosen" checked>
+                        <span class="controls__method-checkmark"></span>
+                    </label>
+                    <label class="controls__method-container">
+                        <div class="controls__method-title">Click</div>
+                        <input type="radio" name="method" id="click" value="click" class="controls__method-picker">
+                        <span class="controls__method-checkmark"></span>
+                    </label>
+                    
+                </div>
+                <div class="controls__refresh">
+                    <div class="controls__refresh-label">Refresh</div>
+                    <div class="controls__refresh-button"></div>
+                </div>
             </div>
+            
         </div>
         <table class="field"></table>
     </div>

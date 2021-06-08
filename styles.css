@@ -228,18 +228,88 @@
     border-right: 5px solid white;
 }
 
+/* Method picker */
+
+.controls__method-refresh-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+}
+
+.controls__method {
+    width: 50%;
+}
+
+.controls__method-label {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.controls__method-container {
+    display: inline-block;
+    position: relative;
+    margin-right: 60px;
+}
+
+.controls__method-container:hover {
+    cursor: pointer;
+}
+
+.controls__method-container:last-child {
+    margin-right: 0;
+}
+
+.controls__method-title {
+    font-size: 24px;
+}
+
+.controls__method-picker {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.controls__method-checkmark {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    top: 45px;
+    left: 3px;
+    height: 30px;
+    width: 30px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.controls__method-checkmark_chosen::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 7px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+
+/* Refresh button */
+
 .controls__refresh {
-    margin-top: 45px;;
+    width: 50%;
 }
 
 .controls__refresh-label {
     font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .controls__refresh-button {
     width: 100px;
     height: 100px;
-    margin: 15px auto 0;
+    margin: 0 auto;
     background-image: url('imgs/refresh.svg');
 }
 
