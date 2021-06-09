@@ -1,4 +1,27 @@
 function createField (columns = 16, field) {
+    let size = document.querySelector('.controls__size-input');
+    size.addEventListener('input', function() {
+        let sizeValue = document.querySelector('.controls__chosen-size');
+        sizeValue.textContent = `${size.value} x ${size.value}`;
+    });
+
+    let color = document.querySelector('.controls__color-radio');
+    color.addEventListener('click', function() {
+        setColor(setMethod());
+    });
+
+    let method = document.querySelector('.controls__method');
+    method.addEventListener('click', function() {
+        setColor(setMethod());
+    });
+
+    let refresh = document.querySelector('.controls__refresh-button');
+    refresh.addEventListener('click', function() {
+        let columns = +size.value;
+        removeField();
+        createField(columns, field);
+    });
+
     let sizeValue = document.querySelector('.controls__chosen-size');
     sizeValue.textContent = `${size.value} x ${size.value}`;
 
@@ -76,29 +99,6 @@ function removeListeners(handler) {
     field.removeEventListener('pointerover', handler);
     field.removeEventListener('click', handler);
 }
-
-let size = document.querySelector('.controls__size-input');
-size.addEventListener('input', function() {
-    let sizeValue = document.querySelector('.controls__chosen-size');
-    sizeValue.textContent = `${size.value} x ${size.value}`;
-});
-
-let color = document.querySelector('.controls__color-radio');
-color.addEventListener('click', function() {
-    setColor(setMethod());
-});
-
-let method = document.querySelector('.controls__method');
-method.addEventListener('click', function() {
-    setColor(setMethod());
-});
-
-let refresh = document.querySelector('.controls__refresh-button');
-refresh.addEventListener('click', function() {
-    let columns = +size.value;
-    removeField();
-    createField(columns, field);
-});
 
 let field = document.querySelector('.field');
 let fieldListeners = [];
