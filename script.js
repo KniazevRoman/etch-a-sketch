@@ -2,7 +2,7 @@ function createField (columns = 16, field) {
     let sizeValue = document.querySelector('.controls__chosen-size');
     sizeValue.textContent = `${size.value} x ${size.value}`;
 
-    let cellSize = Math.floor(400 / columns) + 'px';
+    let cellSize = 400/columns + 'px';
 
     for (let i = 0; i < columns; i++) {
         let row = document.createElement('tr');
@@ -78,7 +78,7 @@ function removeListeners(handler) {
 }
 
 let size = document.querySelector('.controls__size-input');
-size.addEventListener('change', function() {
+size.addEventListener('input', function() {
     let sizeValue = document.querySelector('.controls__chosen-size');
     sizeValue.textContent = `${size.value} x ${size.value}`;
 });
